@@ -1,53 +1,55 @@
-const vegetarian = "Vegetarian Pizza"
-const hawaiian = "Hawaiian Pizza"
-const pepperoni = "Pepperoni Pizza"
+  const vegetarian = "Vegetarian Pizza"
+  const hawaiian = "Hawaiian Pizza"
+  const pepperoni = "Pepperoni Pizza"
 
-const pizzaPrice = 80
+  const pizzaPrice = 80
 
-//Put your Javscript code here:
+  //Put your Javscript code here:
 
-//Bot interaction
-alert("Hey! Happy to serve your pizza. On our menu we have Vegetarian Pizza, Hawaiian Pizza and Pepperoni Pizza")
+  //Bot interaction
 
-const pizzaName = [vegetarian, hawaiian, pepperoni]
+  //Welcome message, alert with a string
+  alert("Hey! Happy to serve your pizza. On our menu we have Vegetarian Pizza, Hawaiian Pizza and Pepperoni Pizza")
 
-const orderName =  prompt("Enter the name of the pizza you want to order today ", "")
+  //Constant variable orderName which gives us a ordername
+  const orderName = prompt("Enter the name of the pizza you want to order today ", "")
 
-
-const checkPizza = (theOrderName) => {
-  if (theOrderName != vegetarian && theOrderName != hawaiian && theOrderName != pepperoni) {
-    alert("Sorry, we don't have that pizza")
-    return false;
-  } else  {  //ingen jämförelse
-    return true;
+  //A function with an statement which checks if the pizza is on the menu or not
+  const checkOrderName = (theOrderName) => {
+    if (theOrderName != vegetarian && theOrderName != hawaiian && theOrderName != pepperoni) {
+      alert("Sorry, we don't have that pizza")
+      return false;
+    } else { //ingen jämförelse
+      return true;
+    }
   }
-}
 
-const res = checkPizza(orderName)
+  //Calling the function checkOrderName with variable orderName
+  const res = checkOrderName(orderName)
 
-if (res) {
-const orderQuantity = prompt("How many " + orderName + " do you want? ")
+  if (res) {
+    const orderQuantity = prompt("How many " + orderName + " do you want? ")
 
-//Vi anväder globala variabler
-const calculateOrderTotal = () => {
-  return orderQuantity * pizzaPrice
-}
+    //A funciton which calculates the totalcost of how many pizzas we order
+    const totalCost = () => {
+      return orderQuantity * pizzaPrice
+    }
 
-const orderTotal =  calculateOrderTotal()
+    //Calling the function orderTotal with global variable
+    const orderTotal = totalCost()
 
+    //A function with an statement which checks hos long the cookingtime takes depending on the pizza quantity
+    const calculateCookingTime = () => {
+      if (orderQuantity <= 2) {
+        return (10)
+      } else if (orderQuantity >= 6) {
+        return (20)
+      } else {
+        return (15)
+      }
+    }
 
-const calculateCookingTime = () => {
-    if (orderQuantity <= 2) {
-      return(10)
+    //Calling the function cookingTime with global variable
+    const cookingTime = calculateCookingTime()
+    alert("Great, I'll get started on your " + orderName + " right away, it will cost " + orderTotal + " kr. " + "The pizzas will take " + cookingTime + " minutes.")
   }
-    else if (orderQuantity >= 6) {
-      return(20)
-}   else {
-      return(15)
-}
-}
-
-const cookingTime = calculateCookingTime()
-alert("Great, I'll get started on your " + orderName + " right away, it will cost " + orderTotal + " kr. " + "The pizzas will take" + cookingTime + " minutes.")
-
-}
